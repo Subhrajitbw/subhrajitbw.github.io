@@ -109,6 +109,8 @@ const Dashboard: React.FC = () => {
       <div className="w-full md:w-1/2 p-4">
         <Line
           data={data}
+          height="200px"
+  width="200px"
           options={{
             responsive: true,
             interaction: {
@@ -118,7 +120,7 @@ const Dashboard: React.FC = () => {
             plugins: {
               title: {
                 display: true,
-                text: 'Chart.js Line Chart - Multi Axis',
+                text: 'Covid-19 World-Wide data',
               },
             },
             scales: {
