@@ -82,7 +82,8 @@ const Dashboard: React.FC = () => {
           label: "Total Cases",
           data: casesData,
           fill: false,
-          borderColor: "red",
+          borderColor: "rgb(255,99,132)",
+          backgroudColor: "rgba(255, 99, 132, 0.5)"
         },
       ],
     };
@@ -107,6 +108,7 @@ const Dashboard: React.FC = () => {
                 },
               },
             },
+            responsive: true,
           }}
         />
       </div>
