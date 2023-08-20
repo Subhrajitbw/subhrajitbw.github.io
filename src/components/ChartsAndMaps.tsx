@@ -134,7 +134,7 @@ const Dashboard: React.FC = () => {
   };
 
   return (
-    <div className="p-8">
+    <div className="p-3">
       <h1 className="text-2xl font-bold mb-4">COVID-19 Dashboard</h1>
       <div className="flex flex-col md:flex-row md:space-x-4">
         {renderLineGraph()}
