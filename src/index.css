@@ -21,3 +21,32 @@ code {
   
   height: 50vh;
 }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.line-graph {
+  height: 300px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 900px;
+  }
+
+  .line-graph {
+    height: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: 600px;
+  }
+
+  .line-graph {
+    height: 150px;
+  }
+}
