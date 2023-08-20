@@ -147,7 +147,7 @@ const Dashboard: React.FC = () => {
   const renderLeafletMap = () => {
     return (
       <div className="w-full md:w-1/2 p-4">
-        <MapContainer center={[position.lat, position.long]} zoom={4} style={{ height: "200px", width: "200px" }}>
+        <MapContainer center={[position.lat, position.long]} zoom={4} style={{ height: "50vh", width: "50vh" }}>
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           {countryData.map((country) => (
             <Marker
