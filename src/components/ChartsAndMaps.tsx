@@ -6,7 +6,7 @@ import axios from "axios";
 import "tailwindcss/tailwind.css";
 import { LinearScale, Chart } from "chart.js";
 import 'chart.js/auto'
-
+import L from 'leaflet';
 Chart.register(LinearScale);
 
 interface CountryData {
@@ -61,6 +61,11 @@ const Dashboard: React.FC = () => {
       console.error("Geolocation is not supported by this browser.");
       setLoading(false);
     }
+
+    L.Icon.Default.mergeOptions({
+      iconUrl: require('leaflet/dist/images/marker-icon.png'),
+      shadowUrl: require('leaflet/dist/images/marker-shadow.png')
+   });
 
     fetchData();
   }, []);
