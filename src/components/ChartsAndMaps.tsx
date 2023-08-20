@@ -4,10 +4,27 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import axios from "axios";
 import "tailwindcss/tailwind.css";
-import { LinearScale, Chart } from "chart.js";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 import 'chart.js/auto'
 import L from 'leaflet';
-Chart.register(LinearScale);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 interface CountryData {
   country: string;
@@ -65,7 +82,7 @@ const Dashboard: React.FC = () => {
     L.Icon.Default.mergeOptions({
       iconUrl: require('leaflet/dist/images/marker-icon.png'),
       shadowUrl: require('leaflet/dist/images/marker-shadow.png')
-   });
+    });
 
     fetchData();
   }, []);
@@ -93,22 +110,32 @@ const Dashboard: React.FC = () => {
         <Line
           data={data}
           options={{
-            scales: {
-              x: {
-                type: "linear",
-                title: {
-                  display: true,
-                  text: "Days",
-                },
+            responsive: true,
+            interaction: {
+              mode: 'index' as const,
+              intersect: false,
+            },
+            plugins: {
+              title: {
+                display: true,
+                text: 'Chart.js Line Chart - Multi Axis',
               },
+            },
+            scales: {
               y: {
-                title: {
-                  display: true,
-                  text: "Number of Cases",
+                type: 'linear' as const,
+                display: true,
+                position: 'left' as const,
+              },
+              y1: {
+                type: 'linear' as const,
+                display: true,
+                position: 'right' as const,
+                grid: {
+                  drawOnChartArea: false,
                 },
               },
             },
-            responsive: true,
           }}
         />
       </div>
